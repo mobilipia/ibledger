@@ -1,0 +1,74 @@
+language: rust
+
+addons:
+  apt:
+    sources:
+    - sourceline: 'ppa:giskou/librocksdb'
+    packages:
+    - gcc
+    - g++
+    - libssl-dev
+    - libcurl4-openssl-dev
+    - libelf-dev
+    - libdw-dev
+    - binutils-dev
+    - libiberty-dev
+    - libsnappy-dev
+    - librocksdb
+
+rust:
+  - stable
+
+cache:
+  directories:
+  - $HOME/.cargo
+  - $HOME/.local
+  - $TRAVIS_BUILD_DIR/target
+
+dist: trusty
+sudo: required
+
+env:
+  global:
+  - CARGO_INCREMENTAL=1
+  - RUSTFLAGS="-C link-dead-code"
+  - CODECOV_TOKEN=90006bf6-e4b7-4825-b880-8d19c4e21c21
+  - ROCKSDB_LIB_DIR=/usr/lib/x86_64-linux-gnu
+  - SNAPPY_LIB_DIR=/usr/lib/x86_64-linux-gnu
+  matrix:
+  - FEATURE=fmt
+  - FEATURE=test-lib
+  - FEATURE=test-doc
+  - FEATURE=clippy
+  - FEATURE=full-build
+
+install: |
+  case "$FEATURE" in
+  "clippy" )
+    cargo clippy --version || rustup component add clippy-preview
+  ;;
+  "fmt" )
+    cargo-audit -V || cargo install cargo-audit --force
+    rustup component add rustfmt-preview
+    rustfmt -V
+    cargo update
+  ;;
+  esac
+script: |
+  case "$FEATURE" in
+  "fmt" )
+      cargo audit && cargo fmt --all -- --check
+  ;;
+  "clippy" )
+      cargo clippy -- -D warnings
+  ;;
+  "test-lib" )
+      RUST_LOG=off cargo test --tests --lib
+  ;;
+  "test-doc" )
+      cargo test --doc -- --test-threads=2
+  ;;
+  "full-build" )
+      unset ROCKSDB_LIB_DIR && unset SNAPPY_LIB_DIR && cargo test --tests --lib
+  ;;
+  esac

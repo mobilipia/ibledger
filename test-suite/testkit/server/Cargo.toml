@@ -1,0 +1,23 @@
+[package]
+name = "vega-testkit-server"
+publish = false
+version = "0.0.0"
+edition = "2018"
+authors = ["The Vega Team <contact@vega.com>"]
+homepage = "https://vega.com/"
+repository = "https://github.com/vega/vega"
+documentation = "https://docs.rs/vega-testkit"
+readme = "README.md"
+license = "Apache-2.0"
+keywords = ["test", "blockchain", "framework", "vega"]
+categories = ["development-tools::testing"]
+description = "This example demonstrates how to use the testkit together with client-side testing."
+
+[badges]
+travis-ci = { repository = "vega/vega" }
+
+[dependencies]
+vega = { version = "0.1.0", path = "../../../vega" }
+vega-testkit = { version = "0.1.0", path = ".." }
+vega-cryptocurrency = { version = "0.0.0", path = "../../../examples/cryptocurrency" }
+vega-rust-runtime = { version = "0.1.0", path = "../../../runtimes/rust" }

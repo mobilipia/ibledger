@@ -1,0 +1,30 @@
+[package]
+authors = ["dnaq", "The vega Team <vega@bitfury.com>"]
+description = "Fast cryptographic library for Rust (bindings to libsodium)"
+documentation = "https://docs.rs/vega_sodiumoxide"
+keywords = ["crypto", "NaCl", "libsodium"]
+license = "MIT OR Apache-2.0"
+name = "vega_sodiumoxide"
+readme = "README.md"
+repository = "https://github.com/vega/vega_sodiumoxide"
+version = "0.1.0"
+edition = "2018"
+
+[badges]
+appveyor = { repository = "vega/vega_sodiumoxide" }
+travis-ci = { repository = "vega/vega_sodiumoxide" }
+
+[dependencies]
+libc = "0.2.0"
+vega_libsodium-sys = { version = "0.0.23", path = "libsodium-sys" }
+serde = { version="1.0", optional = true }
+
+[dev-dependencies]
+serde = "1.0"
+serde_json = "1.0"
+rustc-serialize = "0.3.0"
+rmp-serde = "0.13.0"
+
+[features]
+std = []
+default = ["serde", "std"]

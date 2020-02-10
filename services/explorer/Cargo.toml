@@ -1,0 +1,43 @@
+[package]
+name = "vega-explorer-service"
+version = "0.1.0"
+edition = "2018"
+authors = ["The Vega Team <vega@bitfury.com>"]
+homepage = "https://vega.com/"
+repository = "https://github.com/vega/vega"
+documentation = "https://docs.rs/vega-explorer-service"
+readme = "README.md"
+license = "Apache-2.0"
+keywords = ["vega", "explorer", "service"]
+categories = ["cryptography"]
+description = "Vega blockchain explorer, packaged as a service"
+
+[badges]
+travis-ci = { repository = "vega/vega" }
+
+[dependencies]
+vega = { version = "0.1.0", path = "../../vega" }
+vega-api = { version = "0.1.0", path = "../../components/api" }
+vega-derive = { version = "0.1.0", path = "../../components/derive" }
+vega-explorer = { version = "0.1.0", path = "../../components/explorer" }
+vega-rust-runtime = { version = "0.1.0", path = "../../runtimes/rust" }
+
+actix = "0.7.9"
+actix-web = { version = "0.7.18", default-features = false }
+failure = "0.1.5"
+futures = "0.1.25"
+hex = "0.4.0"
+log = "0.4.6"
+rand = "0.7"
+serde = "1.0"
+serde_derive = "1.0"
+serde_json = "1.0.42"
+
+[dev-dependencies]
+vega-merkledb = { version = "0.1.0", path = "../../components/merkledb" }
+vega-supervisor = { version = "0.1.0", path = "../supervisor" }
+vega-testkit = { version = "0.1.0", path = "../../test-suite/testkit" }
+
+assert_matches = "1.3.0"
+reqwest = "0.9"
+websocket = "0.24"

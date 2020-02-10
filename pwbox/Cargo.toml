@@ -1,0 +1,53 @@
+[package]
+name = "pwbox"
+version = "0.2.1"
+authors = ["The Vega Team <vega@bitfury.com>"]
+edition = "2018"
+license = "Apache-2.0"
+keywords = ["cryptography", "encryption", "password-based", "vega"]
+categories = ["cryptography"]
+description = "Modular password-based encryption"
+
+[dependencies]
+rand_core = "0.5.0"
+clear_on_drop = "0.2.3"
+constant_time_eq = "0.1.3"
+smallvec = "0.6.10"
+failure = "0.1.5"
+failure_derive = "0.1.5"
+# serialization-related dependencies
+serde = "1.0"
+serde_derive = "1.0"
+serde_json = "1.0"
+hex-buffer-serde = "0.2.0"
+# crypto backends
+vega_sodiumoxide = {version = "0.1.0", path = "../vega_sodiumoxide", optional = true }
+rust-crypto = { version = "0.2.36", optional = true }
+
+[dev-dependencies]
+assert_matches = "1.3.0"
+hex = "0.3.2"
+rand = "0.7.0"
+rpassword = "3.0.2"
+serde_cbor = "0.10.0"
+serde_yaml = "0.8.9"
+structopt = "0.2.18"
+toml = "0.5.1"
+
+[features]
+default = ["vega_sodiumoxide"]
+
+[[test]]
+name = "serialization"
+path = "tests/serialization.rs"
+required-features = ["rust-crypto", "vega_sodiumoxide"]
+
+[[example]]
+name = "sodium_keypair"
+path = "examples/sodium_keypair.rs"
+required-features = ["vega_sodiumoxide"]
+
+[[example]]
+name = "key-util"
+path = "examples/key_util.rs"
+required-features = ["vega_sodiumoxide"]

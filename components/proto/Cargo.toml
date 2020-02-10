@@ -1,0 +1,30 @@
+[package]
+name = "vega-proto"
+version = "0.1.0"
+edition = "2018"
+authors = ["The Vega Team <contact@vega.com>"]
+homepage = "https://vega.com/"
+repository = "https://github.com/vega/vega"
+documentation = "https://docs.rs/vega-proto"
+license = "Apache-2.0"
+keywords = ["protobuf", "vega"]
+categories = ["development-tools"]
+description = "Helper traits and macros for serialization structs in protobuf."
+links = "vega_protobuf_common"
+
+[dependencies]
+chrono = { version = "0.4.6", features = ["serde"] }
+failure = "0.1.5"
+protobuf = { version = "2.8.1", features = ["with-serde"] }
+bit-vec = "0.6.1"
+serde = "1.0.101"
+serde_derive = "1.0.101"
+vega-derive = { path = "../derive", version = "0.1.0"}
+protobuf-convert = "0.3.0"
+
+[features]
+default = ["with-serde"]
+with-serde = []
+
+[build-dependencies]
+vega-build = { version = "0.1.0", path = "../build" }

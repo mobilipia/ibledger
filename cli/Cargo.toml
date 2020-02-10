@@ -1,0 +1,32 @@
+[package]
+name = "vega-cli"
+version = "0.1.0"
+authors = ["The Vega Team <contact@vega.com>"]
+edition = "2018"
+homepage = "https://vega.com/"
+repository = "https://github.com/vega/vega"
+documentation = "https://docs.rs/vega-cli"
+license = "Apache-2.0"
+keywords = ["vega", "cli", "library"]
+categories = ["command-line-interface", "configuration"]
+description = "Helper crate for secure and convenient configuration of the Vega nodes."
+
+[dependencies]
+vega = { version = "0.1.0", path = "../vega" }
+vega-node = { version = "0.1.0", path = "../vega-node" }
+vega-explorer-service = { version = "0.1.0", path = "../services/explorer" }
+vega-supervisor = { version = "0.1.0", path = "../services/supervisor" }
+vega-system-api = { version = "0.1.0", path = "../components/system-api" }
+vega-rust-runtime = { version = "0.1.0", path = "../runtimes/rust" }
+structopt = "0.3"
+serde = "1.0"
+log = "0.4"
+serde_derive = "1.0"
+failure = "0.1"
+zeroize = "0.9"
+rpassword = "4.0"
+toml = "0.5"
+
+[dev-dependencies]
+pretty_assertions = "0.6"
+tempfile = "3.1"

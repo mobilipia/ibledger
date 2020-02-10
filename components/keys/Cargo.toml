@@ -1,0 +1,28 @@
+[package]
+name = "vega-keys"
+version = "0.1.0"
+edition = "2018"
+authors = ["The Vega Team <contact@vega.com>"]
+homepage = "https://vega.com/"
+repository = "https://github.com/vega/vega"
+documentation = "https://docs.rs/vega-keys"
+readme = "README.md"
+license = "Apache-2.0"
+keywords = ["vega", "cryptography", "library"]
+categories = ["cryptography", "hashing"]
+description = "Vega validator keys management."
+
+[dependencies]
+rand = "0.7"
+failure = "0.1.5"
+pwbox = {version = "0.2.1", path = "../../pwbox"}
+secret-tree = "0.2.0"
+serde = "1.0.10"
+serde_derive = "1.0.64"
+toml = "0.5.0"
+
+vega-crypto = { version = "0.1.0", path = "../crypto" }
+
+[dev-dependencies]
+tempdir = "0.3.7"
+hex = "0.4"

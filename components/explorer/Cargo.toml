@@ -1,0 +1,34 @@
+[package]
+name = "vega-explorer"
+version = "0.1.0"
+edition = "2018"
+authors = ["The Vega Team <vega@bitfury.com>"]
+homepage = "https://vega.com/"
+repository = "https://github.com/vega/vega"
+documentation = "https://docs.rs/vega-explorer"
+readme = "README.md"
+license = "Apache-2.0"
+keywords = ["vega", "explorer", "blockchain"]
+categories = ["cryptography"]
+description = "Blockchain explorer utils for the Vega framework"
+
+[badges]
+travis-ci = { repository = "vega/vega" }
+
+[dependencies]
+vega = { version = "0.1.0", path = "../../vega" }
+
+chrono = { version = "0.4.6", features = ["serde"] }
+hex = "0.4.0"
+serde = "1.0"
+serde_derive = "1.0"
+
+[dev-dependencies]
+vega-derive = { version = "0.1.0", path = "../derive" }
+vega-merkledb = { version = "0.1.0", path = "../merkledb" }
+vega-rust-runtime = { version = "0.1.0", path = "../../runtimes/rust" }
+
+bincode = "1.2.1"
+failure = "0.1.5"
+futures = "0.1.29"
+serde_json = "1.0"

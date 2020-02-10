@@ -1,0 +1,25 @@
+{
+  "name": "vega",
+  "version": "0.0.0",
+  "private": true,
+  "description": "JS dependencies for Vega",
+  "dependencies": {},
+  "devDependencies": {
+    "cspell": "^4.0.23",
+    "markdownlint-cli": "^0.17.0"
+  },
+  "scripts": {
+    "cspell": "./cspell.sh",
+    "md": "find . -not -path \"*/node_modules/*\" -and -not -path \"*/target/*\" -name \"*.md\" | xargs ./node_modules/.bin/markdownlint --config .markdownlintrc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vega/vega.git"
+  },
+  "author": "Vega Team <vega@bitfury.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vega/vega/issues"
+  },
+  "homepage": "https://github.com/vega/vega#readme"
+}

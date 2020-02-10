@@ -1,0 +1,28 @@
+[package]
+authors = ["dnaq", "The vega Team <vega@bitfury.com>"]
+build = "build.rs"
+description = "FFI binding to libsodium"
+documentation = "https://dnaq.github.io/sodiumoxide"
+keywords = ["libsodium", "NaCl", "crypto"]
+license = "MIT OR Apache-2.0"
+links = "sodium"
+name = "vega_libsodium-sys"
+repository = "https://github.com/vega/vega_sodiumoxide.git"
+version = "0.0.23"
+edition = "2018"
+
+[build-dependencies]
+pkg-config = "0.3.14"
+flate2 = "1.0.0"
+libc = "0.2.0"
+tar = "0.4.0"
+zip = "0.5.0"
+num_cpus = "1.10"
+cc = { version = "1.0.0", features = ["parallel"] }
+
+[dependencies]
+libc = "0.2.0"
+
+[lib]
+name = "libsodium_sys"
+path = "lib.rs"

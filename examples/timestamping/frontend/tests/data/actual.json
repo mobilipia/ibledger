@@ -1,0 +1,32 @@
+{
+  "hash": "e40e737a02c8f6124306cd26e178aeaf135fbc71d6dcf279fde68fed7d6974e6",
+  "config": {
+    "previous_cfg_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "actual_from": 0,
+    "validator_keys": [
+      {
+        "consensus_key": "31472900a96fcc07004c1dd3f144a6bc648e94ec3ef43c84cae45055f58c9762",
+        "service_key": "ca76e225783250c0d54d720ac272d246a31d1cfb5890824b1b9f001eb3cba0da"
+      }
+    ],
+    "consensus": {
+      "first_round_timeout": 3000,
+      "status_timeout": 5000,
+      "peers_timeout": 10000,
+      "txs_block_limit": 1000,
+      "max_message_len": 1048576,
+      "min_propose_timeout": 10,
+      "max_propose_timeout": 200,
+      "propose_timeout_threshold": 500
+    },
+    "services": {
+      "configuration": {
+        "majority_count": null
+      },
+      "vega_time": null,
+      "timestamping": null
+    }
+  },
+  "propose": null,
+  "votes": null
+}

@@ -1,0 +1,27 @@
+[package]
+name = "vega_rocksdb"
+description = "Rust wrapper for Facebook's RocksDB embeddable database"
+version = "0.7.6"
+authors = ["Tyler Neely <t@jujit.su>", "David Greenberg <dsg123456789@gmail.com>", "The vega Team <vega@bitfury.com>"]
+license = "Apache-2.0"
+keywords = ["database", "embedded", "LSM-tree", "persistence"]
+homepage = "https://github.com/vega/vega_rocksdb"
+exclude = [
+    ".gitignore",
+    ".travis.yml",
+    "deploy.sh",
+    "test/**/*",
+]
+
+[features]
+default = []
+valgrind = []
+
+[[test]]
+name = "test"
+path = "test/test.rs"
+
+[dependencies]
+libc = "0.2"
+tempdir = "0.3"
+vega_librocksdb-sys = { path = "librocksdb-sys", version = "0.5.5" }
