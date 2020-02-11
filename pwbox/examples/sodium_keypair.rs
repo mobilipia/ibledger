@@ -1,4 +1,4 @@
-// Copyright 2018 The Exonum Team
+// Copyright 2018 The Vega Team
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 //! Password-based encryption example for securely storing an Ed25519 keypair.
 //! For simplicity, errors during processing lead to panics.
 
-use exonum_sodiumoxide::crypto::sign::{
+use vega_sodiumoxide::crypto::sign::{
     gen_keypair, keypair_from_seed, PublicKey, SecretKey, Seed, SEEDBYTES,
 };
 use hex_buffer_serde::Hex;
